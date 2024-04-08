@@ -2,8 +2,8 @@ import App from "./App";
 import { useState } from "react";
 
 function Add() {
-    const[taskId, setTaskId] = useState("");
     const[taskName, setTaskName] = useState("");
+    const [taskDescription, setTaskDescription] = useState("")
     const[tasks, setTasks] = useState("");
     const [taskStatus, setTaskStatus] = useState(false);
 
@@ -16,7 +16,7 @@ function Add() {
 
     const handleAddTask = (e) =>{
         e.preventDefault();
-        const tasks = {taskId, taskName, taskStatus};
+        const tasks = {taskName, taskStatus, taskDescription};
 
         fetch('http://localhost:8000/tasks',{
             method: 'POST',
@@ -33,12 +33,12 @@ function Add() {
         <>
             <div className='newTaskForm'>
             <form>
-                <label htmlFor="id">Task ID</label>
-                <input type="number" name="task-id" placeholder="task id" required value={taskId} 
-                onChange = {(e)=> {setTaskId(e.target.value)}}></input>
                 <label htmlFor="Task Name"> Type Name of Task : </label>
                 <input type="text" name="Task Name" id="TaskName" placeholder='Task name...' required value={taskName}
                 onChange={(e) => {setTaskName(e.target.value)}} />
+                <label htmlFor="id">Task Description</label>
+                <input type="textarea" name="taskDescription" placeholder="task description..." required value={taskDescription} 
+                onChange = {(e)=> {setTaskDescription(e.target.value)}}></input>
                 <div className='addContainer'> <br /> <br />
                 <button className='addTaskbtn'onClick={handleAddTask}> Add New Task </button>
             </div>
