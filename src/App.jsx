@@ -1,15 +1,25 @@
 import { useState } from 'react'
 import './App.css'
 import Add from './CreateTask'
+import Display from './DisplayTasks'
+import Home from './Home'
 
 function App() {
-  
 
   
   return (
     <>
-    <h1> To Do Application</h1>
-    <Add/>
+      <Home/>
+
+      {/* <div className='functions'>
+        <Add/> <br />
+        <Delete/><br /> <br />
+        <Display/> <br />
+
+      </div> */}
+    
+        
+    
 
 
 
