@@ -1,24 +1,20 @@
 import { useState } from 'react'
 import './App.css'
 import Add from './CreateTask'
-import Display from './DisplayTasks'
 import Home from './Home'
+import Navbar from './Navbar'
+
 
 function App() {
 
   
   return (
     <>
-      <Home/>
-
-      {/* <div className='functions'>
-        <Add/> <br />
-        <Delete/><br /> <br />
-        <Display/> <br />
-
-      </div> */}
-    
-        
+    <Navbar/>
+    <Home/>
+    <br />
+    <h2>Add New Task</h2>
+    <Add/>        
     
 
 

@@ -1,10 +1,10 @@
 import App from "./App"; 
 import Add from "./CreateTask";
-import Delete from "./DeleteTask";
 import { useState, useEffect} from "react";
 
 function Home(){
     const[tasks, setTasks] = useState([]);
+    
 
     useEffect(() =>{
         fetch('http://localhost:3000/tasks')
@@ -16,23 +16,27 @@ function Home(){
         })
         
     },[] )
+
     const handleDelete = () => {
-        fetch('http://localhost:3000/tasks/' + tasks.id, {
-            method: 'DELETE'
-        }).then(()=>{
-            //redirect to home page
-            
-            
+        fetch('http://localhost:3000/tasks' + tasks.id, {
+            method: 'DELETE',
+            headers: {"Content-Type" : "application/json"}
+        }).then((response) =>{
+            if(!response.ok){
+                throw new Error('Something went wrong')
+            }
+            return response.json()
+        }).then((data) =>{
+            setTasks(data)
+        }).catch((e) =>{
+            console.log(e)
         })
-
+       
     }
+        
 
-    return(
+    return (
         <>
-            <div className="home">
-                <h1>To Do Application</h1>
-                <h3>All Your Tasks</h3>
-            </div>
             <div>
                 {tasks.map((task =>(
                     <div className="tasksDisplay" key={task.id}>
@@ -40,8 +44,7 @@ function Home(){
                         <p>Description: {task.taskDescription}</p>
                         <p>Status: {task.taskStatus}</p>
                         <button className="delClassBtn" onClick={handleDelete}>Delete</button>
-                    </div>
-                    
+                    </div>  
 
                 ))
                     
@@ -49,5 +52,6 @@ function Home(){
             </div>
         </>
     )
+
 }
 export default Home

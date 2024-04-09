@@ -16,6 +16,14 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+.navbar{
+  display: flex;
+  text-align: right;
+}
+.navbar .links{
+  padding-left: 2rem;
+  text-align: end;
+}
 
 @keyframes logo-spin {
   from {
