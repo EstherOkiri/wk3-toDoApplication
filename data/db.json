@@ -2,27 +2,19 @@
   "tasks": [
     {
       "id": "95ad",
-      "taskName": "Polish Project",
-      "taskStatus": false,
-      "taskDescription": "add functionality"
+      "taskName": "Polish Project"
     },
     {
-      "id": "18c9",
-      "taskName": "Do Laundry",
-      "taskStatus": false,
-      "taskDescription": "For 1hour"
+      "id": "b293",
+      "taskName": "grocery shopping"
     },
     {
-      "id": "3dcb",
-      "taskName": "Do Laundry",
-      "taskStatus": false,
-      "taskDescription": "For 1hour"
+      "id": "a6bf",
+      "taskName": "washing clothes"
     },
     {
-      "id": "3063",
-      "taskName": "Do Laundry",
-      "taskStatus": false,
-      "taskDescription": "For 1hour"
+      "id": "85ed",
+      "taskName": "cook"
     }
   ]
 }

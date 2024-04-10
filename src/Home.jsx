@@ -7,18 +7,17 @@ function Home(){
     
 
     useEffect(() =>{
-        fetch('http://localhost:3000/tasks')
+        fetch('http://localhost:8000/tasks')
         .then((res)=>{
             return res.json();
         }).then((data) =>{
-            console.log(data);
             setTasks(data);
         })
         
     },[] )
 
     const handleDelete = () => {
-        fetch('http://localhost:3000/tasks' + tasks.id, {
+        fetch('http://localhost:8000/tasks' + tasks.id, {
             method: 'DELETE',
             headers: {"Content-Type" : "application/json"}
         }).then((response) =>{
@@ -41,8 +40,6 @@ function Home(){
                 {tasks.map((task =>(
                     <div className="tasksDisplay" key={task.id}>
                         <h2>Task Name: {task.taskName}</h2>
-                        <p>Description: {task.taskDescription}</p>
-                        <p>Status: {task.taskStatus}</p>
                         <button className="delClassBtn" onClick={handleDelete}>Delete</button>
                     </div>  
 
